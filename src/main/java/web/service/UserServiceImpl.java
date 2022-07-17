@@ -11,33 +11,35 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Service
-@Transactional
 public class UserServiceImpl implements UserService{
+
+    private UserDao userDao;
     @Autowired
-    private UserDao userDao ;
-
-
+    public UserServiceImpl(UserDao userDao) {
+        this.userDao = userDao;
+    }
     @Override
     public List<User> getAllUsers() {
         return userDao.getAllUsers();
     }
 
+    @Transactional
     @Override
     public User getUserById(long id) {
         return userDao.getUserById(id);
     }
 
+    @Transactional
     @Override
     public void removeUserById(long id) {
         userDao.removeUserById(id);
-
     }
-
+    @Transactional
     @Override
     public void updateUserById(long id, User user) {
         userDao.updateUserById(id, user);
     }
-
+    @Transactional
     @Override
     public void saveUser(User user) {
         userDao.saveUser(user);
