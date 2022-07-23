@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import web.models.User;
 import web.service.UserService;
 
+import javax.ws.rs.HeaderParam;
 
 
 @Controller
@@ -40,7 +41,7 @@ public class UsersController {
     }
 
     @GetMapping("/{id}/edit")
-    public String edit(Model model,@PathVariable("id") long id ) {
+    public String edit(Model model, @PathVariable("id") long id) {
         model.addAttribute("user", userService.getUserById(id));
         return "users/edit";
     }

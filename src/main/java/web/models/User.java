@@ -1,10 +1,11 @@
 package web.models;
 
 import lombok.Data;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.io.Serializable;
-
 
 @Data
 @Entity
@@ -22,6 +23,6 @@ public class User implements Serializable {
 
     @Column(name = "age")
     private int age;
-
+    
 
 }
